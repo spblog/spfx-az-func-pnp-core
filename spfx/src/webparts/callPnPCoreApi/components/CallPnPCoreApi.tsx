@@ -10,7 +10,9 @@ export const CallPnPCoreApi: FC<ICallPnPCoreApiProps> = (props) => {
   React.useEffect(() => {
     const getData = async () => {
       const client = await props.context.aadHttpClientFactory.getClient('ca226d3c-f06d-4ea5-8bb4-f7b9b11df7da');
-      const results: any[] = await (await client.get(`https://spfx-pnp-core-api.azurewebsites.net/api/GetLists/?siteUrl=${props.context.pageContext.site.absoluteUrl}&tenantId=${props.context.pageContext.aadInfo.tenantId}`, AadHttpClient.configurations.v1)).json();
+      const siteUrl = props.context.pageContext.site.absoluteUrl;
+      const tenantId = props.context.pageContext.aadInfo.tenantId;
+      const results: any[] = await (await client.get(`https://spfx-pnp-core-api.azurewebsites.net/api/GetLists/?siteUrl=${siteUrl}&tenantId=${tenantId}`, AadHttpClient.configurations.v1)).json();
 
       setLists(results);
     };
