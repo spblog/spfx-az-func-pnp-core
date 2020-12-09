@@ -16,7 +16,9 @@ namespace PnPCoreApi
             config.Bind(appInfo);
 
             builder.Services.AddSingleton(appInfo);
-            builder.Services.AddPnPCore();
+            builder.Services.AddPnPCore(opts => { 
+                // optional configuration here
+            });
         }
     }
 }
