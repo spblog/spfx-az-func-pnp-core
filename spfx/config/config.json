@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "call-pn-p-core-api-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/callPnPCoreApi/CallPnPCoreApiWebPart.js",
+          "manifest": "./src/webparts/callPnPCoreApi/CallPnPCoreApiWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CallPnPCoreApiWebPartStrings": "lib/webparts/callPnPCoreApi/loc/{locale}.js"
+  }
+}
