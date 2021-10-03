@@ -39,9 +39,9 @@ namespace PnPCoreApi
             var results = new List<ListData>();
             using (var pnpContext = await _pnpContextFactory.CreateAsync(new System.Uri(siteUrl), onBehalfAuthProvider))
             {
-                var lists = pnpContext.Web.Lists.Load(l => l.Id, l => l.Title).ToList();
+                await pnpContext.Web.Lists.LoadAsync(l => l.Id, l => l.Title);
 
-                foreach (var list in lists)
+                foreach (var list in pnpContext.Web.Lists.AsRequested())
                 {
                     results.Add(new ListData { Title = list.Title });
                 }
